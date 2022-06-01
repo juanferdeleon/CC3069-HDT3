@@ -26,7 +26,7 @@ __global__ void hello ()
                blockIdx.x ) * blockDim.x + 
                threadIdx.x; 
 
-  if (myID > 131070) {
+  if (myID > 131000) {
     printf ("Hello world from %i\n", myIDnw);
   }
   // printf ("Hello world from %i\n", myIDnw);
