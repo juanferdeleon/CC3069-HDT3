@@ -31,8 +31,11 @@ __global__ void hello ()
 
 int main ()
 {
-  dim3 g (4, 3, 2);
-  hello <<< g, 10 >>> ();
+  // dim3 g (4, 3, 2);
+  // hello <<< g, 10 >>> ();
+  dim3 g (4,2);
+  dim3 b (32,16);
+  hello <<<g, b>>>();
   cudaThreadSynchronize ();
   return 0;
 }
