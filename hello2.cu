@@ -20,24 +20,25 @@ __global__ void hello ()
                threadIdx.y * blockDim.x + 
                threadIdx.x; 
 
-  // Simplification of above 
+//Simplification of above 
   int myID = ( blockIdx.z * gridDim.x * gridDim.y  + 
                blockIdx.y * gridDim.x + 
                blockIdx.x ) * blockDim.x + 
                threadIdx.x; 
 
-  printf ("Hello world from %i\n", myIDnw);
+  if (myID > 131070) {
+    printf ("Hello world from %i\n", myIDnw);
+  }
+  // printf ("Hello world from %i\n", myIDnw);
 }
 
 int main ()
 {
-  // dim3 g (4, 3, 2);
-  // hello <<< g, 10 >>> ();
-  // dim3 g (4,2);
-  // dim3 b (32,16);
-  dim3 g (8,128);
-  dim3 b (16,8);
-  hello <<<g, b>>>();
+  // dim3 g (4, 2);
+  // dim3 b (32, 16);
+  dim3 g (8, 128);
+  dim3 b (16, 8);
+  hello <<< g, b >>> ();
   cudaThreadSynchronize ();
   return 0;
 }
