@@ -19,7 +19,8 @@ __global__ void hello()
 int main()
 {
   // hello<<<1,10>>>();
-  hello<<<2,1024>>>(); // Mod 1
+  // hello<<<2,1024>>>(); // Mod 1
+  hello<<<1,2048>>>(); // Mod 2
   cudaThreadSynchronize();
   return 0;
 }
