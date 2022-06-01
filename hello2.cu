@@ -20,7 +20,7 @@ __global__ void hello ()
 //                threadIdx.y * blockDim.x + 
 //                threadIdx.x; 
 
-  Simplification of above 
+  // Simplification of above 
   int myID = ( blockIdx.z * gridDim.x * gridDim.y  + 
                blockIdx.y * gridDim.x + 
                blockIdx.x ) * blockDim.x + 
